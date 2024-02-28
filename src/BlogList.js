@@ -1,28 +1,29 @@
-import { Button, Card } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { Card, Row } from "react-bootstrap";
+import React from "react";
 
-const BlogList = ({blogs}) => {
-  return (
-    <div>
+const BlogList = ({ blogs }) => {
+  return ( 
+    <>
+    <div> <br />
+       <Row  className="g-2">
       {blogs.map((item) => (
-            <Card>
-            <Card.Header className="text-capitalize">{item.title}</Card.Header>
-            <Card.Body>
-              <Card.Title>{item.author}</Card.Title>
-              <Card.Text>{item.detail.slice(0, 100)}...</Card.Text>
-              <Button variant="primary">
-                <Link to={`/blogs/${item.id}`} className="text-light text-decoration-none ">Read More...</Link>
-                </Button>
-            </Card.Body>
-          </Card>
-        // <div>
-        //     <h1>{item.title}</h1>
-        //     <p>{item.detail}</p>
-        //     <div>{item.author}</div>
-        // </div>
+        <Card key={`/blogs/:id`} className="border-0">
+        <Card.Header className="navbar text-capitalize">
+          <h6>Author:</h6>
+          <i>{item.author}</i>
+        </Card.Header>
+        <Card.Body className="gradient-paragraph">
+          <Card.Text>
+            <h6>Quote:</h6>
+            <b>"{item.text}"</b>
+          </Card.Text>
+        </Card.Body>
+      </Card> 
       ))}
+    </Row>
     </div>
+    </>
   )
 }
 
-export default BlogList
+export default BlogList;

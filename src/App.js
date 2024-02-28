@@ -1,18 +1,37 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import Header from './Header';
-import { useState } from 'react';
-import BlogList from './BlogList';
+import { useEffect, useState } from 'react';
+// import BlogList from './BlogList';
+import BlogDetail from './BlogDetail';
 
 function App() {
-  const [blogs, setBlogs] = useState([
-    {id: 1, title: "title1", detail: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In maxime explicabo exercitationem distinctio iure sunt quam nihil rerum sint delectus esse, perferendis doloremque fugiat quisquam, vel eaque odit? Pariatur, ullam?", author: "Mark"},
-    {id: 2, title: "title1", detail: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In maxime explicabo exercitationem distinctio iure sunt quam nihil rerum sint delectus esse, perferendis doloremque fugiat quisquam, vel eaque odit? Pariatur, ullam?", author: "Mark"},
-    {id: 3, title: "title1", detail: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. In maxime explicabo exercitationem distinctio iure sunt quam nihil rerum sint delectus esse, perferendis doloremque fugiat quisquam, vel eaque odit? Pariatur, ullam?", author: "Mark"},
-  ])
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    fetch("https://type.fit/api/quotes") // Replace with your API endpoint
+      .then(response => response.json())
+      .then(data => {
+        setBlogs(data);
+        console.log(data)
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
   return (
-    <Container>
-      <Row><Col><Header /></Col></Row>
-      <Row><Col><BlogList blogs={blogs}  /></Col></Row>
+    <Container  style={{backgroundImage: "linear-gradient(to right, #F1D4E9, #F1DBF7, #F8DBF7 )"}}>
+      <Row>
+        <Col>
+          <Header />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          {/* <BlogList blogs={blogs} /> */}
+          <BlogDetail blogs={blogs} />
+        </Col>
+      </Row>
     </Container>
   );
 }

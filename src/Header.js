@@ -1,19 +1,18 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import React from 'react';
+import './App.css';
 
 function Header() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="navbar">
       <Container>
-        <Navbar.Brand href="/">Jojo Blog</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Brand href="/" className="navbar-brand,">Jojo Blog</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/blogs">Blog List</Nav.Link>
-            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/"  className="navbar-link">Home</Nav.Link>
+            <Nav.Link href="/blogs"  className="navbar-link">Blog List</Nav.Link>
+            <Nav.Link href="/about"  className="navbar-link">About</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

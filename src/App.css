@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+.gradient-paragraph {
+  background-image: linear-gradient(to right, #f4b1a1, #f3c19c, rgba(241, 139, 183, 0.933));
+  color: rgb(76, 76, 76); 
+  padding: 10px;
+  border: 5px solid rgb(212, 104, 104);
+  border-radius: 15%;
+  margin: 20px;
+  padding: 18px;
+}
+  .gradient-paragraph:hover{
+  transform: scale(0.9);
+  transition: 2s;
+  background-image: linear-gradient(to right, #82b09d, #81b8b8, rgba(198, 147, 197, 0.933));
+  border: 5px solid rgb(97, 5, 116);
+  border-radius: 20px;
+  color: rgb(241, 233, 233); 
+}
+.navbar {
+  background-image: linear-gradient(to right, #82b09d, #81b8b8, rgba(198, 147, 197, 0.933));
+  border: 2px solid #9b82b0;
+  border-radius: 20px;
+}
+
+.navbar-brand {
+  font-style: italic;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+
+.navbar-link {
+  text-decoration: none;
+  margin-right: 50px;
+}
+
+.navbar-link:hover {
+  text-decoration: underline;
+  font-weight: bold;
+  font-style: oblique;
+}
